@@ -1,4 +1,4 @@
-from config import get_client
+from config import *
 from birdy.twitter import UserClient
 
 # Use the client to generate the auth token and auth secret

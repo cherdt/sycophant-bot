@@ -12,6 +12,7 @@ A bot that favorites and retweets a user's most recent tweet
 ## Usage
 
 * Copy `config.py.template` to `config.py`
+* Create a `state` directory
 * As any twitter user, create a twitter app at https://apps.twitter.com
 * Enter the Consumer Key and Consumer Secret from the app in `config.py`
 * Log in to twitter as the bot user (the user who will do the rewteeting and following)
