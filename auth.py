@@ -2,7 +2,7 @@ from config import get_client
 from birdy.twitter import UserClient
 
 # Use the client to generate the auth token and auth secret
-client = UserClient(CONSUMER_KEY, CONSUMER_SECRET)
+client = UserClient(get_consumer_key(), get_consumer_secret())
 token = client.get_authorize_token()
 AUTH_TOKEN = token.oauth_token
 AUTH_TOKEN_SECRET = token.oauth_token_secret
@@ -15,7 +15,7 @@ print token.auth_url
 OAUTH_VERIFIER = raw_input("Enter PIN: ")
 
 # Use the client to generate the access token and access secret
-client = UserClient(CONSUMER_KEY, CONSUMER_SECRET, AUTH_TOKEN, AUTH_TOKEN_SECRET)
+client = UserClient(get_consumer_key(), get_consumer_secret(), AUTH_TOKEN, AUTH_TOKEN_SECRET)
 token = client.get_access_token(OAUTH_VERIFIER)
 
 # Display OAUTH token and secret

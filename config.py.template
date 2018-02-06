@@ -10,6 +10,12 @@ CONSUMER_SECRET = 'ABCDE12345fghij67890KLMNO98765pqrst43210UVWXYZZZZZ'
 OAUTH_TOKEN = 'ABCDE12345fghij67890KLMNO98765pqrst43210UVWXYZZZZZ'
 OAUTH_TOKEN_SECRET = 'ABCDE12345fghij67890KLMNO98765pqrst43210UVWXY'
 
+def get_consumer_key():
+    return CONSUMER_KEY
+
+def get_consumer_secret():
+    return CONSUMER_SECRET
+
 def get_client():
     # create twitter client
     client = UserClient(CONSUMER_KEY,
