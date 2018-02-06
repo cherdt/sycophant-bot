@@ -1,0 +1,3 @@
+# don't overwrite the user's state and config.py files
+state/
+config.py
