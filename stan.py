@@ -6,13 +6,6 @@ from birdy.twitter import UserClient
 # You can change where the state files are kept, if you want
 STATE_DIR = 'state/'
 
-
-def favorite(client, tweet):
-    response = client.api.favorites.create.post(id=str(tweet))
-
-def retweet(client, tweet):
-    response = client.api.statuses.retweet.post(id=str(tweet))
-
 def get_last_seen_tweet_id(client, username, filepath):
     # open & read target user state file
     try:
@@ -47,6 +40,9 @@ def main(argv):
     # create twitter client
     client = get_client()
 
+    # create twitter wrapper
+    twitter = Twitter(client)
+
     # open & read target user state file
     last_id = get_last_seen_tweet_id(client, TARGET_USER, STATE_DIR + LAST_TWEET)
 
@@ -58,10 +54,10 @@ def main(argv):
         last_id = int(response.data[0].id)
 
         if not response.data[0].favorited:
-            favorite(client, last_id)
+            twitter.favorite(last_id)
 
         if not response.data[0].retweeted:
-            retweet(client, last_id)
+            twitter.retweet(last_id)
 
         # update the last tweet we've seen
         update_last_seen_tweet_id(STATE_DIR + LAST_TWEET, last_id)
