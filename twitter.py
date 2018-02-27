@@ -11,3 +11,5 @@ class Twitter:
     def update(self, tweet):
         response = self.client.api.statuses.update.post(status=str(tweet))
 
+    def dm(self, user, message):
+    	response = self.client.api.direct_messages.new.post(screen_name=str(user), text=str(message))
